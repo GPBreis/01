@@ -10,35 +10,41 @@
     <canvas id="sheet" width="600" height="500"></canvas>
     <script>
         window.onload = function() {
-            setInterval(executar, 1000 / 30)
+            initiate()
+            setInterval(main, 1000 / 30)
         }
 
-        let ballPositionX = ballPositionY = 10
-        let ballSpeedX = ballSpeedY = 5
-        let player1 = player2 = 225
-        let scorePlayer1 = scorePlayer2 = 0
+        function initiate() {
+            ballPositionX = ballPositionY = 10
+            ballSpeedX = ballSpeedY = 5
+            player1 = player2 = 225
+            scorePlayer1 = scorePlayer2 = 0
 
-        let sheet = document.getElementById("sheet")
-        let drawArea = sheet.getContext("2d")
+            sheet = document.getElementById("sheet")
+            drawArea = sheet.getContext("2d")
 
-        const width = 600
-        const height = 500
-        const lineWidht = 5
-        const ballWidht = 10
-        const playerHeight = 50
-        const playerWidht = 5
-        const playerEffect = 0.3
-        const speedPlayer2 = 5
+            width = 600
+            height = 500
+            lineWidht = 5
+            ballWidht = 10
+            playerHeight = 50
+            playerWidht = 5
+            playerEffect = 0.3
+            speedPlayer2 = 5
 
-        sheet.addEventListener('mousemove', function(e) {
-            player1 = e.clientY - playerHeight / 2
-        })
+            sheet.addEventListener('mousemove', function(e) {
+                player1 = e.clientY - playerHeight / 2
+            })
+        }
 
-        function executar() {
-            
-            
-            // Total area
-            drawArea.fillStyle = "#286047"
+        function main (){
+            draw()
+            calculate()
+        }
+
+        function draw() {
+             // Total area
+             drawArea.fillStyle = "#286047"
             drawArea.fillRect(0, 0, width, height)
 
             // Central line
@@ -55,7 +61,13 @@
             drawArea.fillText(`Robot - ${scorePlayer2}`, width - 200, 100)
 
             // Ball
-            drawArea.fillRect(ballPositionX - ballWidht / 2, ballPositionY - ballWidht / 2, ballWidht, ballWidht)
+            drawArea.fillRect(ballPositionX - ballWidht / 2, ballPositionY - ballWidht / 2, ballWidht, ballWidht);
+        }
+
+        function calculate() {
+            
+            draw()
+           
             ballPositionX += ballSpeedX
             ballPositionY += ballSpeedY
 
@@ -73,15 +85,12 @@
                 if(ballPositionY > player1 && ballPositionY < player1 + playerHeight){
                     ballSpeedX = -ballSpeedX
 
-                    let yDifference = ballPositionY - (player1 + playerHeight / 2)
+                    yDifference = ballPositionY - (player1 + playerHeight / 2)
                     ballSpeedY = yDifference * playerEffect
                 } else {
                     scorePlayer2++
 
-                    ballPositionY = height / 2
-                    ballPositionX = width / 2
-                    ballSpeedX = -ballSpeedX
-                    ballSpeedy = 3
+                    continuar()
                 }
             }
 
@@ -90,15 +99,12 @@
                 if(ballPositionY > player2 && ballPositionY < player2 + playerHeight) {
                     ballSpeedX = -ballSpeedX
 
-                    let yDifference = ballPositionY - (player2 + playerHeight / 2)
+                    yDifference = ballPositionY - (player2 + playerHeight / 2)
                     ballSpeedY = yDifference * playerEffect
                 } else {
                     scorePlayer1++
 
-                    ballPositionY = height / 2
-                    ballPositionX = width / 2
-                    ballSpeedX = -ballSpeedX
-                    ballSpeedy = 3
+                    continuar()
                 }
             }
 
@@ -110,7 +116,12 @@
 
         }
 
-        
+        function continuar() {
+            ballPositionY = height / 2
+            ballPositionX = width / 2
+            ballSpeedX = -ballSpeedX
+            ballSpeedy = 3
+        }
     </script>
 </body>
 </html>

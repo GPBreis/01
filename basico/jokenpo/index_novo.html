@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jokenpô</title>
+
+    <style>
+        #main {
+            border: 1px solid red;
+        }
+
+        #score {
+            border: 1px solid blue;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+        }
+
+        #player, #computer {
+            flex-grow: 1;
+        }
+
+        #player {
+            background-color: #e74c3c;
+        }
+
+        #player #player-choice {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        #player #player-choice li {
+            display: inline;
+        }
+
+        #player #player-choice a {
+
+        }
+
+        #player #player-choice img {
+            max-width: 80px;
+        }
+
+        #versus {
+            
+        }
+
+        #computer {
+            background-color: #3498db;
+        }
+
+        #message {
+            border: 1px solid green;
+        }
+    </style>
+</head>
+<body>
+    <div id="main">
+        <h1 id="title">Pedra, Papel e Tesoura!</h1>
+
+        <div id="score">
+            <div id="player">
+                <h2 id="player-name">Gustavo</h2>
+                <span id="player-score">0</span>
+                <ul id="player-choice">
+                    <li><a id="player-choice-1"><img src="img/pedra.html"></a></li>
+                    <li><a id="player-choice-2"><img src="img/papel.html"></a></li>
+                    <li><a id="player-choice-3"><img src="img/tesoura.html"></a></li>
+                </ul>
+            </div>
+
+            <div id="versus">
+                VS
+            </div>
+
+            <div id="computer">
+                Computer
+            </div>
+        </div>
+
+        <div id="message">
+            Message
+        </div>
+    </div>
+</body>
+</html>

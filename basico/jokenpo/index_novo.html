@@ -7,38 +7,65 @@
     <title>Jokenpô</title>
 
     <style>
+        * {
+            font-family: Helvetica Neue, Helvetica, Arial;
+            font-weight: 400;
+            cursor: default;
+        }
+
         #main {
-            border: 1px solid red;
+            
         }
 
         #score {
-            border: 1px solid blue;
+            
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #fff;
         }
 
         #player, #computer {
             flex-grow: 1;
+            color: #fff;
+            border-radius: 5px;
+            padding: 20px;
+        }
+
+        #player h2, #computer h2 {
+            margin: 0;
+            padding: 0;
         }
 
         #player {
             background-color: #e74c3c;
         }
 
+        #player-name, #computer-name {
+            font-size: 24px;
+        }
+
+        #player-score, #computer-score {
+            font-size: 52px;
+        }
+
         #player #player-choice {
             list-style: none;
+            text-align: center;
             margin: 0;
             padding: 0;
         }
 
         #player #player-choice li {
             display: inline;
+            padding: 0 15px;
         }
 
         #player #player-choice a {
+            opacity: .2;
+        }
 
+        #player #player-choice a:hover {
+            opacity: 1;
         }
 
         #player #player-choice img {
@@ -54,7 +81,7 @@
         }
 
         #message {
-            border: 1px solid green;
+
         }
     </style>
 </head>

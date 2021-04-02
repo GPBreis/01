@@ -17,6 +17,11 @@
             
         }
 
+        #title {
+            text-align: center;
+            color: #2d3436;
+        }
+
         #score {
             
             display: flex;
@@ -29,6 +34,7 @@
             color: #fff;
             border-radius: 5px;
             padding: 20px;
+            position: relative;
         }
 
         #player h2, #computer h2 {
@@ -37,51 +43,69 @@
         }
 
         #player {
-            background-color: #e74c3c;
+            background-color: #ff7675;
         }
 
         #player-name, #computer-name {
             font-size: 24px;
         }
 
-        #player-score, #computer-score {
-            font-size: 52px;
+        #computer-name {
+            text-align: right;
         }
 
-        #player #player-choice {
+        #player-score, #computer-score {
+            font-size: 52px;
+            position: absolute;
+            top: 8px;
+        }
+
+        #player-score {
+            right: 20px;
+        }
+
+        #player #player-choice, #computer #computer-choice {
             list-style: none;
             text-align: center;
-            margin: 0;
+            margin: 30px 0 0;
             padding: 0;
         }
 
-        #player #player-choice li {
+        #player #player-choice li, #computer #computer-choice li {
             display: inline;
             padding: 0 15px;
         }
 
-        #player #player-choice a {
+        #player #player-choice a, #computer #computer-choice a {
             opacity: .2;
         }
 
-        #player #player-choice a:hover {
+        #player #player-choice a:hover, #computer #computer-choice a:hover {
             opacity: 1;
         }
 
-        #player #player-choice img {
+        #player #player-choice img, #computer #computer-choice img {
             max-width: 80px;
         }
 
         #versus {
-            
+            font-size: 80px;
+            padding: 0 40px;
         }
 
         #computer {
             background-color: #3498db;
         }
 
-        #message {
 
+        #message {
+            background-color: #636e72;
+            text-align: center;
+            border-radius: 5px;
+            margin: 20px 0;
+            padding: 20px;
+            font-size: 24px;
+            color: #fff;
         }
     </style>
 </head>
@@ -91,7 +115,7 @@
 
         <div id="score">
             <div id="player">
-                <h2 id="player-name">Gustavo</h2>
+                <h2 id="player-name">Loading</h2>
                 <span id="player-score">0</span>
                 <ul id="player-choice">
                     <li><a id="player-choice-1"><img src="img/pedra.html"></a></li>
@@ -105,13 +129,36 @@
             </div>
 
             <div id="computer">
-                Computer
+                <h2 id="computer-name">Computer</h2>
+                <span id="computer-score">0</span>
+                <ul id="computer-choice">
+                    <li><a id="computer-choice-1"><img src="img/pedra.html"></a></li>
+                    <li><a id="computer-choice-2"><img src="img/papel.html"></a></li>
+                    <li><a id="computer-choice-3"><img src="img/tesoura.html"></a></li>
+                </ul>
             </div>
         </div>
 
         <div id="message">
-            Message
+            Loading
         </div>
     </div>
+
+    <script>
+        let playerName
+
+        function play(choice) {
+            
+        }
+
+        document.getElementById('player-choice-1').onclick = function() { play(1) }
+        document.getElementById('player-choice-1').onclick = function() { play(1) }
+        document.getElementById('player-choice-1').onclick = function() { play(1) }
+
+        playerName = prompt("What's your name?")
+
+        document.getElementById('message').innerHTML = `Welcome ${playerName}, are you ready? Choose an option above...`
+        document.getElementById('player-name').innerHTML = playerName
+    </script>
 </body>
 </html>
